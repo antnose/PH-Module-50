@@ -8,3 +8,8 @@ body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
+
+a.active {
+  color: #414141;
+  text-decoration: underline;
+}
