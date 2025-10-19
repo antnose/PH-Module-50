@@ -11,7 +11,7 @@ const Header = () => {
 
       <p className="text-center">
         {format(new Date(), "EEEE")}, {format(new Date(), "LLLL")}{" "}
-        {format(new Date(), "d")}, {format(new Date(), "Y")}
+        {format(new Date(), "d")}, {format(new Date(), "y")}
       </p>
     </div>
   );

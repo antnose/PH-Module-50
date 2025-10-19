@@ -10,6 +10,5 @@ body {
 }
 
 a.active {
-  color: #414141;
-  text-decoration: underline;
+  @apply bg-base-300;
 }

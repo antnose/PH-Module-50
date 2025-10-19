@@ -1,12 +1,12 @@
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 import { User } from "lucide-react";
 
 const Navbar = () => {
   const links = (
     <>
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/about"}>About</NavLink>
-      <NavLink to={"/career"}>Career</NavLink>
+      <Link to={"/"}>Home</Link>
+      <Link to={"/about"}>About</Link>
+      <Link to={"/career"}>Career</Link>
     </>
   );
   return (
