@@ -1,12 +1,13 @@
+import { Link } from "react-router";
 import logo from "../assets/logo.png";
 import { format } from "date-fns";
 
 const Header = () => {
   return (
     <div>
-      <div className="flex justify-center py-5">
+      <Link to={"/"} className="flex justify-center py-5">
         <img src={logo} alt="" />
-      </div>
+      </Link>
       <p className="text-center">Journalism Without Fear or Favour</p>
 
       <p className="text-center">

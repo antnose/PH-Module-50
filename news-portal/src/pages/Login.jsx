@@ -24,7 +24,7 @@ const Login = () => {
           title: "Welcome Back! 🎉",
           text: "You have successfully logged in.",
           confirmButtonText: "Continue",
-          timer: 2500, // Optional: auto-close after 2.5 seconds
+          timer: 2000, // Optional: auto-close after 2.5 seconds
           showClass: {
             popup: "animate__animated animate__fadeInDown",
           },

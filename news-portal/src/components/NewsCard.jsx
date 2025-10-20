@@ -1,8 +1,17 @@
 import { FaStar, FaRegBookmark, FaShareAlt, FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-  const { title, author, thumbnail_url, details, rating, total_view, tags } =
-    news;
+  const {
+    title,
+    author,
+    thumbnail_url,
+    details,
+    rating,
+    total_view,
+    tags,
+    id,
+  } = news;
 
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-100">
@@ -45,9 +54,12 @@ const NewsCard = ({ news }) => {
         <p className="text-gray-600 text-sm leading-relaxed">
           {details.length > 150 ? `${details.slice(0, 150)}...` : details}
         </p>
-        <button className="text-orange-500 font-semibold mt-2 hover:underline">
+        <Link
+          to={`/newsDetails/${id}`}
+          className="text-orange-500 font-semibold mt-2 hover:underline"
+        >
           Read More
-        </button>
+        </Link>
 
         {/* Tags */}
         <div className="mt-3 flex flex-wrap gap-2">
@@ -90,3 +102,5 @@ const NewsCard = ({ news }) => {
 };
 
 export default NewsCard;
+
+// 51-5 Load & Display News Details Page 0.48

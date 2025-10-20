@@ -36,5 +36,3 @@ const CategoryNews = () => {
 };
 
 export default CategoryNews;
-
-// 50-7 Recap Filter Operation and Display News Card 12.05
