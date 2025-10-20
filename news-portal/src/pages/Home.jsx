@@ -1,5 +1,7 @@
+import { Navigate } from "react-router";
+
 const Home = () => {
-  return <div>This is home page</div>;
+  return <Navigate to={"/category/0"} />;
 };
 
 export default Home;

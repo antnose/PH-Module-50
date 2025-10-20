@@ -8,7 +8,6 @@ const Categories = () => {
 
   return (
     <div>
-      <h1 className="font-bold">{categories.length}</h1>
       <div className="mt-5 gap-5">
         {categories.map((cat) => (
           <NavLink
