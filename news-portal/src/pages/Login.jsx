@@ -8,7 +8,6 @@ const Login = () => {
   const { loginUser } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         // Assuming result contains user data on success
-        // console.log("Login Success:", result.user);
+
         navigate(location.state || "/");
         // 🚀 SUCCESS ALERT
         Swal.fire({

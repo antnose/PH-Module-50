@@ -44,7 +44,7 @@ const Navbar = () => {
           })
           .catch((error) => {
             // 3. Handle any error that occurs during sign-out
-            console.error("Sign Out Error:", error);
+
             Swal.fire({
               title: "Sign Out Failed",
               text: "There was an error signing you out. Please try again.",

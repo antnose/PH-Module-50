@@ -23,7 +23,6 @@ const Register = () => {
         })
           .then(setUser({ ...user, displayName: name, photoUrl: photoUrl }))
           .catch((error) => {
-            console.log(error);
             setUser(user);
           });
 
@@ -36,7 +35,6 @@ const Register = () => {
       })
       .catch((err) => {
         // Log the full error for debugging
-        console.error(err);
 
         // Determine the error message to display
         let errorMessage = "An unknown error occurred. Please try again.";
