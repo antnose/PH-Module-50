@@ -91,13 +91,16 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button onClick={handleSignoutUser} className="flex btn">
-            <IoIosLogOut />
-            Logout
-          </button>
+          <>
+            <img src={`${user.photoUrl}`} alt="" />
+
+            <button onClick={handleSignoutUser} className="flex btn">
+              Logout
+            </button>
+          </>
         ) : (
           <Link to={"/auth/login"} className="flex btn">
-            <User /> Login
+            Login
           </Link>
         )}
       </div>

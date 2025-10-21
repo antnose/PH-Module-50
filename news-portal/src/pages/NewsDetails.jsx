@@ -15,7 +15,6 @@ const NewsDetails = () => {
     setFilteredNews(res);
   }, [id, news]);
 
-  console.log(filteredNews);
   return (
     <div>
       <header className="py-3">

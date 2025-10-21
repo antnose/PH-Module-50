@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD_TcSWVUpu8Fwyj8suowd1g6qG4y4NuE4",
-  authDomain: "news-portal-2832e.firebaseapp.com",
-  projectId: "news-portal-2832e",
-  storageBucket: "news-portal-2832e.firebasestorage.app",
-  messagingSenderId: "670467585883",
-  appId: "1:670467585883:web:a697308bac72f2ef394c7e",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

@@ -1,10 +1,11 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { use } from "react";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, setUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,12 +17,22 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        setUser(user);
+        updateUser({
+          displayName: name,
+          photoUrl: photoUrl,
+        })
+          .then(setUser({ ...user, displayName: name, photoUrl: photoUrl }))
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+
         Swal.fire({
           title: "Account Created Successfully! 🎉",
           icon: "success",
           draggable: true,
         });
+        navigate("/");
       })
       .catch((err) => {
         // Log the full error for debugging
@@ -133,3 +144,5 @@ const Register = () => {
 };
 
 export default Register;
+
+// 51-8 Update User Profile and redirect on Registration 5.53

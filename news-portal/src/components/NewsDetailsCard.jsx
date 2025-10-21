@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 
 const NewsDetailsCard = ({ filteredNews }) => {
-  console.log(filteredNews);
   return (
     <div className="space-y-5">
       <img

@@ -1,10 +1,14 @@
-import { use } from "react";
-import { Link } from "react-router";
+import { use, useState } from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { loginUser } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
 
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -17,7 +21,7 @@ const Login = () => {
       .then((result) => {
         // Assuming result contains user data on success
         // console.log("Login Success:", result.user);
-
+        navigate(location.state || "/");
         // 🚀 SUCCESS ALERT
         Swal.fire({
           icon: "success",
@@ -38,10 +42,10 @@ const Login = () => {
       })
       .catch((error) => {
         // Log the full error for developers
-        console.error("Login Error:", error);
 
         // Map common errors to friendly messages (e.g., Firebase Auth errors)
         let errorMessage = "An unknown error occurred. Please try again.";
+        setError(errorMessage);
 
         if (error && error.code) {
           switch (error.code) {
@@ -49,29 +53,34 @@ const Login = () => {
             case "auth/wrong-password":
               errorMessage =
                 "Invalid email or password. Please check your credentials.";
+              setError(errorMessage);
               break;
             case "auth/invalid-email":
               errorMessage = "The email address format is invalid.";
+              setError(errorMessage);
               break;
             case "auth/user-disabled":
               errorMessage =
                 "Your account has been disabled. Please contact support.";
+              setError(errorMessage);
               break;
             default:
               errorMessage = error.message || errorMessage;
+              setError(errorMessage);
           }
         } else if (error && error.message) {
           errorMessage = error.message;
+          setError(errorMessage);
         }
 
         // 🛑 ERROR ALERT
-        Swal.fire({
-          icon: "error",
-          title: "Login Failed 😟",
-          text: errorMessage,
-          confirmButtonText: "Try Again",
-          footer: '<a href="#">Forgot your password?</a>', // Helpful link
-        });
+        // Swal.fire({
+        //   icon: "error",
+        //   title: "Login Failed 😟",
+        //   text: errorMessage,
+        //   confirmButtonText: "Try Again",
+        //   footer: '<a href="#">Forgot your password?</a>', // Helpful link
+        // });
       });
   };
 
@@ -107,6 +116,9 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
+
+              {error && <p className="text-red-500"> {error} </p>}
+
               <button type="submit" className="btn btn-neutral mt-4">
                 Login
               </button>
